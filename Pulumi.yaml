@@ -1,6 +1,6 @@
 name: pulumi-python-webapp-sql
 runtime: python
-description: A minimal Azure Python Pulumi program
+description: A Secure Azure Paas WebApp+SQL Stack which can run as a seperate Spoke in the CAF Hub-Spoke
 template:
   config:
     azure:environment:
@@ -8,4 +8,11 @@ template:
       default: public
     sqlPassword:
       description: SQL Server password (complex enough to satisfy Azure policy)
+      default: 'admin@123'
       secret: true
+    sqlUsername:
+      description: SQL Server admin user for the connection string 
+      default: 'pulumi'
+    applicationName: 
+      description: name of the application to enforce the naming
+      default: todo
