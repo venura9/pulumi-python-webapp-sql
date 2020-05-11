@@ -1,6 +1,5 @@
 config:
   azure:environment: public
   azure:location: AustraliaEast
-  pulumi-python-webapp-sql:applicationName: todo
-  pulumi-python-webapp-sql:sqlPassword: admin@123
-  pulumi-python-webapp-sql:sqlUsername: pulumi
+  todo:sqlPassword: admin@123
+  todo:sqlUsername: pulumi

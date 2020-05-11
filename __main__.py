@@ -3,24 +3,23 @@ from pulumi_azure import core, storage, appservice, appinsights, sql
 
 import pulumi
 env =  pulumi.get_stack()
-project = pulumi.get_project()
+appname = pulumi.get_project()
 
 config = Config()
 username = config.require("sqlUsername")
 pwd = config.require("sqlPassword")
-appname = config.require("applicationName")
 
-resource_group = core.ResourceGroup(env + '-' + appname + '-rg')
+resource_group = core.ResourceGroup(appname +  '-' + env + '-rg')
 
 sql_server = sql.SqlServer(
-    env + '-' + appname + '-sql',
+    appname +  '-' + env + '-sql',
     resource_group_name=resource_group.name,
     administrator_login=username,
     administrator_login_password=pwd,
     version="12.0")
 
 database = sql.Database(
-    env + '-' + appname + '-db',
+    appname +  '-' + env + '-db',
     resource_group_name=resource_group.name,
     server_name=sql_server.name,
     requested_service_objective_name="S0")
@@ -30,7 +29,7 @@ connection_string = Output.all(sql_server.name, database.name, username, pwd) \
 
 
 app_service_plan = appservice.Plan(
-    env + '-' + appname + '-asp',
+    appname +  '-' + env + '-asp',
     resource_group_name=resource_group.name,
     kind="App",
     sku={
@@ -39,14 +38,14 @@ app_service_plan = appservice.Plan(
     })
 
 app_insights = appinsights.Insights(
-    env + '-' + appname + '-ai',
+    appname +  '-' + env + '-ai',
     resource_group_name=resource_group.name,
     location=resource_group.location,
     application_type="web")
 
 
 webapp=appservice.AppService(
-    env + '-' + appname + '-webapp',
+    appname +  '-' + env + '-webapp',
     resource_group_name=resource_group.name,
     app_service_plan_id=app_service_plan.id,
     app_settings={
