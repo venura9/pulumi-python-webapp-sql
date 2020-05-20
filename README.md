@@ -39,6 +39,7 @@ with App Service.
 
     ```bash
     pulumi config set --secret sqlPassword <value>
+    pulumi config set --secret sqlPassword <value>
     ```
 
 1. Run `pulumi up` to preview and deploy changes:
