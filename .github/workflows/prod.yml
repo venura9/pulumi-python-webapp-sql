@@ -40,4 +40,4 @@ jobs:
         export PATH=$PATH:/home/runner/.pulumi/bin
     - name: Test with pytest
       run: |
-        pulumi preview
+        /home/runner/.pulumi/bin/pulumi preview
