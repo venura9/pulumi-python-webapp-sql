@@ -51,4 +51,5 @@ jobs:
         
     - name: Preview the stack for changes
       run: |
+        echo "::add-path::/home/runner/.pulumi/bin"
         pulumi preview
