@@ -48,3 +48,7 @@ jobs:
     - name: Select the stack
       run: |
         pulumi stack select dev -c
+        
+    - name: Preview the stack for changes
+      run: |
+        pulumi preview
