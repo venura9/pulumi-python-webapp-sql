@@ -40,4 +40,6 @@ jobs:
         export PATH=$PATH:/home/runner/.pulumi/bin
     - name: Test with pytest
       run: |
-        /home/runner/.pulumi/bin/pulumi preview
+        /home/runner/.pulumi/bin/pulumi login
+      env:
+        PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
