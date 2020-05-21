@@ -3,6 +3,10 @@
 
 Secure Azure App Services + SQL PaaS stack using pulumi
 
+![Deploy Production](https://github.com/venura9/pulumi-python-webapp-sql/workflows/Deploy%20Production/badge.svg)
+
+Ref: https://github.com/pulumi/examples/tree/master/azure-py-appservice
+
 # Getting Started with Pulumi
 
 Instructions at: https://www.pulumi.com/docs/get-started/ 
