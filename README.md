@@ -1,5 +1,5 @@
 
-# This app I call it `pulumi-webapp-sql`
+# This app I call it `todo`
 
 Secure Azure App Services + SQL PaaS stack using pulumi
 
@@ -82,8 +82,8 @@ with App Service.
 
     Performing changes:
     ...
-    info: 10 changes performed:
-        + 10 resources created
+    info: 7 changes performed:
+        + 7 resources created
     Update duration: 1m14.59910109s
     ```
 
@@ -93,10 +93,5 @@ with App Service.
     $ pulumi stack output endpoint
     https://azpulumi-as0ef47193.azurewebsites.net
     $ curl "$(pulumi stack output endpoint)"
-    <html>
-        <body>
-            <h1>Greetings from Azure App Service!</h1>
-        </body>
-    </html>
     ```
  
