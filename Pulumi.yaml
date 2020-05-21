@@ -1,3 +1,3 @@
 name: todo
 runtime: python
-description: A Secure Azure Paas WebApp+SQL Stack which can run as a seperate Spoke in the CAF Hub-Spoke
+description: Secure Azure App Services + SQL PaaS stack using pulumi

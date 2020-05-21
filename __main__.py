@@ -41,7 +41,8 @@ app_insights = appinsights.Insights(
     appname +  '-' + env + '-ai',
     resource_group_name=resource_group.name,
     location=resource_group.location,
-    application_type="web")
+    application_type="web",
+    retention_in_days=90)
 
 
 webapp=appservice.AppService(
