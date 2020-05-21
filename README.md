@@ -1,8 +1,39 @@
-# pulumi-webapp-sql
+
+# This app I call it `pulumi-webapp-sql`
+
 Secure Azure App Services + SQL PaaS stack using pulumi
 
+# Getting Started with Pulumi
+
+Instructions at: https://www.pulumi.com/docs/get-started/ 
+
+* Install Pulumi
+```bash
+# Install on macos
+$ brew install pulumi
+
+# Install on linux
+$ curl -fsSL https://get.pulumi.com | sh
+```
+* Install Python 3.6 or above
+
+# Project Setup
+
+* For this Project
 
 [![Deploy](https://get.pulumi.com/new/button.svg)](https://app.pulumi.com/new)
+
+* For new projects
+
+    * Create via Web App
+    [https://app.pulumi.com/site/new-project](https://app.pulumi.com/site/new-project)
+
+    * Create via CLI
+    ```bash
+    $ pulumi new
+    ```
+
+    * Have a `Pulumi.yaml` in your directory and it will be used to create a new project.
 
 # Azure App Service with SQL Database and Application Insights
 
