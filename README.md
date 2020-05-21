@@ -31,7 +31,7 @@ $ curl -fsSL https://get.pulumi.com | sh
 
 * For new projects
 
-    * Create via Web App
+    * Create via Web App:
     [https://app.pulumi.com/site/new-project](https://app.pulumi.com/site/new-project)
 
     * Create via CLI
