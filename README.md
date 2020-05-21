@@ -49,6 +49,11 @@ with App Service.
     ```bash
     $ pulumi stack init dev
     ```
+    
+    ```bash
+    # if you want the stack to be created at the same time
+    $ pulumi stack init dev -c
+    ```
 
 1. Login to Azure CLI (you will be prompted to do this during deployment if you forget this step):
 
@@ -70,7 +75,17 @@ with App Service.
 
     ```bash
     pulumi config set --secret sqlPassword <value>
-    pulumi config set --secret sqlPassword <value>
+    pulumi config set sqlUsername <value>
+    
+    #if the stack is created with `pulumi stack init dev -c`
+    pulumi config set azure:environment public
+    pulumi config set azure:location AustraliaEast    
+    ```
+
+1. Run `pulumi preview` to preview changes (Optional, Good for CI, Pull Requests):
+
+    ``` bash
+    $ pulumi preview
     ```
 
 1. Run `pulumi up` to preview and deploy changes:
