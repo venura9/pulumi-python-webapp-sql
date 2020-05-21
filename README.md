@@ -17,6 +17,12 @@ $ curl -fsSL https://get.pulumi.com | sh
 ```
 * Install Python 3.6 or above
 
+# Lingo 
+
+* Program: a collection of files written in your chosen programming language
+* Project: a directory containing a program, with metadata, so Pulumi knows how to run it
+* Stack: an instance of your project, each often corresponding to a different cloud environment
+
 # Project Setup
 
 * For this Project
@@ -34,6 +40,31 @@ $ curl -fsSL https://get.pulumi.com | sh
     ```
 
     * Have a `Pulumi.yaml` in your directory and it will be used to create a new project.
+    ```yaml
+    name: todo # change this name and you will end up with a new stack
+    runtime: python
+    description: Secure Azure App Services + SQL PaaS stack using pulumi
+    ```
+# Login
+
+```bash
+pulumi login [<url>] [flags]
+
+# Pulumi manages the state, you need PULUMI_ACCESS_TOKEN in the environment variables (or you will be prompted)
+# Get it from: https://app.pulumi.com/venura9/settings/tokens
+pulumi login
+
+# Enterprise 
+pulumi login https://api.pulumi.yourcompany.com
+
+# Local fs
+pulumi login file://~
+pulumi login --local
+
+#Azure Blob
+pulumi login azblob://my-pulumi-state-bucket
+
+```
 
 # Azure App Service with SQL Database and Application Insights
 
@@ -52,7 +83,7 @@ with App Service.
     
     ```bash
     # if you want the stack to be created at the same time
-    $ pulumi stack init dev -c
+    $ pulumi stack switch dev -c
     ```
 
 1. Login to Azure CLI (you will be prompted to do this during deployment if you forget this step):
@@ -74,12 +105,15 @@ with App Service.
 1. Define SQL Server password (make it complex enough to satisfy Azure policy):
 
     ```bash
+    
+    # generates Pulumi.dev.yaml and adds the vaules, if the file exists with the values you don't need to set the config.
+    
     pulumi config set --secret sqlPassword <value>
     pulumi config set sqlUsername <value>
     
-    #if the stack is created with `pulumi stack init dev -c`
+    #if the stack is created with `pulumi stack switch dev -c`
     pulumi config set azure:environment public
-    pulumi config set azure:location AustraliaEast    
+    pulumi config set azure:location AustraliaEast
     ```
 
 1. Run `pulumi preview` to preview changes (Optional, Good for CI, Pull Requests):
@@ -110,3 +144,9 @@ with App Service.
     $ curl "$(pulumi stack output endpoint)"
     ```
  
+ ### What if someone changes the resource from another interface?
+ 
+     $ pulumi refresh
+     $ pulumi preview
+     # .... fix the diff ...
+     
