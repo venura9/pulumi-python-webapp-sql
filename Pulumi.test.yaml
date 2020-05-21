@@ -1,0 +1,6 @@
+config:
+  azure:environment: public
+  azure:location: AustraliaEast
+  todo:sqlPassword:
+    secure: AAABAP8jK99jxj6bbxNIkYb1+waG64u68zOzu8OiH2qsC7pq4lvHIJM=
+  todo:sqlUsername: pulumi
