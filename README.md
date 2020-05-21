@@ -39,7 +39,7 @@ $ curl -fsSL https://get.pulumi.com | sh
     $ pulumi new
     ```
 
-    * Have a `Pulumi.yaml` in your directory and it will be used to create a new project.
+    * Have a `Pulumi.yaml` in your directory and it will be used to create a new project.    
     ```yaml
     name: todo # change this name and you will end up with a new stack
     runtime: python
@@ -146,7 +146,8 @@ with App Service.
  
  ### What if someone changes the resource from another interface?
  
-     $ pulumi refresh
-     $ pulumi preview
-     # .... fix the diff ...
+ 1. Remind kindly that you shouldn't touch the portal @$#%@^#@^@#^
+ 1. Run `pulumi refresh`
+ 1. Run `pulumi preview`
+ 1. Fix the diff
      
