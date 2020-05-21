@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  preview:
 
     runs-on: ubuntu-latest
 
@@ -43,9 +43,10 @@ jobs:
 #         pip3 install pytest
 #         pytest
 
-    - uses: azure/login@v1.1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+# Pulumi didn't honor `az login` when using service principal
+#    - uses: azure/login@v1.1
+#      with:
+#        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: preview the stack
       run: |
