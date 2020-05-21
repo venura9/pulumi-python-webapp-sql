@@ -83,7 +83,7 @@ with App Service.
     
     ```bash
     # if you want the stack to be created at the same time
-    $ pulumi stack switch dev -c
+    $ pulumi stack select dev -c
     ```
 
 1. Login to Azure CLI (you will be prompted to do this during deployment if you forget this step):
