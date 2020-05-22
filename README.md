@@ -40,17 +40,14 @@ $ curl -fsSL https://get.pulumi.com | sh
 * For new projects
 
     * Create via Web App:
-    
     [https://app.pulumi.com/site/new-project](https://app.pulumi.com/site/new-project)
 
     * Create via CLI
-    
     ```bash
     $ pulumi new
     ```
 
     * Have a `Pulumi.yaml` in your directory and it will be used to create a new project.
-    
     ```yaml
     name: todo # change this name and you will end up with a new stack
     runtime: python
@@ -161,4 +158,3 @@ with App Service.
  1. Run `pulumi refresh`
  1. Run `pulumi preview`
  1. Fix the diff
-     
