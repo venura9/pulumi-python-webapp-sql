@@ -18,7 +18,11 @@ $ brew install pulumi
 
 # Install on linux
 $ curl -fsSL https://get.pulumi.com | sh
+
+# Install on windows
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; iex ((New-Object System.Net.WebClient).DownloadString('https://get.pulumi.com/install.ps1'))" && SET "PATH=%PATH%;%USERPROFILE%\.pulumi\bin"
 ```
+
 * Install Python 3.6 or above
 
 # Lingo 
@@ -36,14 +40,17 @@ $ curl -fsSL https://get.pulumi.com | sh
 * For new projects
 
     * Create via Web App:
+    
     [https://app.pulumi.com/site/new-project](https://app.pulumi.com/site/new-project)
 
     * Create via CLI
+    
     ```bash
     $ pulumi new
     ```
 
-    * Have a `Pulumi.yaml` in your directory and it will be used to create a new project.    
+    * Have a `Pulumi.yaml` in your directory and it will be used to create a new project.
+    
     ```yaml
     name: todo # change this name and you will end up with a new stack
     runtime: python
