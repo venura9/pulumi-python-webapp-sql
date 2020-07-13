@@ -3,6 +3,10 @@
 
 Secure Azure App Services + SQL PaaS stack using pulumi
 
+![Preview](https://github.com/venura9/pulumi-python-webapp-sql/workflows/Deploy%20Production/badge.svg)
+
+Ref: https://github.com/pulumi/examples/tree/master/azure-py-appservice
+
 # Getting Started with Pulumi
 
 Instructions at: https://www.pulumi.com/docs/get-started/ 
@@ -14,7 +18,11 @@ $ brew install pulumi
 
 # Install on linux
 $ curl -fsSL https://get.pulumi.com | sh
+
+# Install on windows
+@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; iex ((New-Object System.Net.WebClient).DownloadString('https://get.pulumi.com/install.ps1'))" && SET "PATH=%PATH%;%USERPROFILE%\.pulumi\bin"
 ```
+
 * Install Python 3.6 or above
 
 # Lingo 
@@ -39,7 +47,7 @@ $ curl -fsSL https://get.pulumi.com | sh
     $ pulumi new
     ```
 
-    * Have a `Pulumi.yaml` in your directory and it will be used to create a new project.    
+    * Have a `Pulumi.yaml` in your directory and it will be used to create a new project.
     ```yaml
     name: todo # change this name and you will end up with a new stack
     runtime: python
@@ -83,7 +91,7 @@ with App Service.
     
     ```bash
     # if you want the stack to be created at the same time
-    $ pulumi stack switch dev -c
+    $ pulumi stack select dev -c
     ```
 
 1. Login to Azure CLI (you will be prompted to do this during deployment if you forget this step):
@@ -150,4 +158,3 @@ with App Service.
  1. Run `pulumi refresh`
  1. Run `pulumi preview`
  1. Fix the diff
-     
