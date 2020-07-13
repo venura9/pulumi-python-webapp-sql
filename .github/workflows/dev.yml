@@ -49,15 +49,35 @@ jobs:
 #        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
 # There's an easier way: https://www.pulumi.com/docs/guides/continuous-delivery/github-actions/
+#     - name: preview the stack
+#       run: |
+#         python3 -m venv venv
+#         source venv/bin/activate
+#         pip3 install -r requirements.txt
+#         pulumi login
+#         pulumi stack select dev -c
+#         pulumi preview
+#       env:
+#         PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+#         ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+#         ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+#         ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+#         ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+        
+    - uses: docker://pulumi/actions
+      with:
+        args: stack select dev -c
+      env:
+        PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+        ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+        ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+        ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+        ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+  
 
-    - name: preview the stack
-      run: |
-        python3 -m venv venv
-        source venv/bin/activate
-        pip3 install -r requirements.txt
-        pulumi login
-        pulumi stack select dev -c
-        pulumi preview
+    - uses: docker://pulumi/actions
+      with:
+        args: preview
       env:
         PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
         ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
