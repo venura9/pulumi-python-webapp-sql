@@ -12,7 +12,7 @@ pwd = config.require("sqlPassword")
 resource_group = core.ResourceGroup(appname +  '-' + env + '-rg')
 
 sql_server = sql.SqlServer(
-    appname +  '-' + env + '-sql',
+    resource_name=appname +  '-' + env + '-sql',
     resource_group_name=resource_group.name,
     administrator_login=username,
     administrator_login_password=pwd,
@@ -38,7 +38,9 @@ app_service_plan = appservice.Plan(
     })
 
 app_insights = appinsights.Insights(
-    appname +  '-' + env + '-ai',
+
+    name=appname + '-' + env + '-sql', # bypass auto naming
+    resource_name=appname +  '-' + env + '-ai',
     resource_group_name=resource_group.name,
     location=resource_group.location,
     application_type="web",
